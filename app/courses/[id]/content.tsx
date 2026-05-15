@@ -74,7 +74,7 @@ export default function CourseContentScreen() {
             </Text>
           </View>
           <Text className="mt-2 text-[13px] leading-5 text-secondary">
-            The content for this course would be rendered here in WebView. Currently we're using google.com as the placeholder.
+            The content for this course would be rendered here in WebView.
           </Text>
           {bridgeMessage ? (
             <View className="mt-3 flex-row items-center gap-2 rounded-lg bg-[#142921] px-3 py-2">
