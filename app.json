@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "LearnFlow",
+    "slug": "learnflow",
+    "scheme": "learnflow",
+    "icon": "./assets/icon.png",
+    "orientation": "default",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0f172a"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.houseofedtech.learnflow"
+    },
+    "android": {
+      "package": "com.houseofedtech.learnflow",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0f172a"
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-image-picker",
+      "expo-notifications"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "e662589c-3179-47ef-bb00-e371ec3fa190"
+      }
+    }
+  }
+}
