@@ -1,7 +1,7 @@
 <p>
   <img width="50" height="50" alt="splash" src="https://github.com/user-attachments/assets/385041fb-3f1e-441f-8cb2-904f6d43993d" />   
 </p>
----
+<p>
 # LearnFlow
 
 LearnFlow is a Mini LMS mobile app built in `React Native Expo`. It combines secure authentication, a native course catalog, embedded WebView content, local notifications, persistence, and resilient offline-aware UX.
@@ -97,5 +97,6 @@ The networking layer in `src/lib/api.ts` isn't just a fetcher. It includes:
 - **Dual-Storage Strategy**: I use **Expo SecureStore** for sensitive credentials (tokens) and **AsyncStorage** for non-sensitive data (bookmarks, local preferences), adhering to mobile security best practices.
 ### 4. Bidirectional WebView Bridge
 Instead of a simple "viewer," the course content screen (`courses/[id]/content.tsx`) implements a secure bridge. It uses `onMessage` and `injectJavaScript` to synchronize course progress between the embedded HTML and the native app state.
+</p>
 ---
 
