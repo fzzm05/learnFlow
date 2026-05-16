@@ -2,6 +2,9 @@
 
 LearnFlow is a Mini LMS mobile app built in `React Native Expo` for the House of EdTech assignment. It combines secure authentication, a native course catalog, embedded WebView content, local notifications, persistence, and resilient offline-aware UX.
 
+## 🚀 Live Preview & Build
+**Android Preview Build:** [Install via Expo EAS](https://expo.dev/accounts/fzzm05/projects/learnflow/builds/e259e68e-eeb6-4e13-a49f-3c4a92941969)
+
 ## Stack
 
 - `Expo SDK 55`
@@ -75,17 +78,20 @@ If you want to make this configurable later, introduce an Expo public env variab
 - Course data is normalized before UI rendering so screens do not depend on raw API shapes.
 - WebView content is generated from local HTML for deterministic demo behavior.
 
-## Known Limitations
 
-- The FreeAPI auth endpoint shapes may vary slightly from the assumptions used here for `/users/login`, `/users/register`, and `/users/refresh-token`.
-- Notification icon assets and store distribution polish are not finalized.
-- README screenshots and demo video still need to be captured after running the app on device/emulator.
+## Reasoning behind the Architectural Decisions
 
-## Demo Checklist
+### 1. Performance-First Rendering with `LegendList`
+Standard `FlatList` often struggles with complex UI and images in a large catalog. I implemented **LegendList** to ensure 60FPS scrolling. By utilizing `estimatedItemSize` and memoized components, the app achieves near-native performance for catalog browsing.
+### 2. Resilient API Layer (Axios + Interceptors)
+The networking layer in `src/lib/api.ts` isn't just a fetcher. It includes:
+- **Automatic Token Refresh**: Interceptors handle 401 errors by attempting a silent refresh before failing.
+- **Request Timeouts**: Strict 12s timeout to prevent "hanging" UI states.
+- **Error Normalization**: A centralized utility converts raw API errors into user-friendly messages.
+### 3. Secure State Persistence
+- **Zustand**: Used for its atomic state slices and minimal boilerplate, keeping the business logic decoupled from the UI.
+- **Dual-Storage Strategy**: I use **Expo SecureStore** for sensitive credentials (tokens) and **AsyncStorage** for non-sensitive data (bookmarks, local preferences), adhering to mobile security best practices.
+### 4. Bidirectional WebView Bridge
+Instead of a simple "viewer," the course content screen (`courses/[id]/content.tsx`) implements a secure bridge. It uses `onMessage` and `injectJavaScript` to synchronize course progress between the embedded HTML and the native app state.
+---
 
-- Show login or register
-- Show catalog load, search, and pull-to-refresh
-- Save 5+ courses to trigger a bookmark milestone
-- Open course details and enroll
-- Open the WebView content screen and show bridge communication
-- Toggle offline mode and show the offline banner
