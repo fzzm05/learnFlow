@@ -1,10 +1,12 @@
-<img width="50" height="50" alt="splash" src="https://github.com/user-attachments/assets/385041fb-3f1e-441f-8cb2-904f6d43993d" /> 
+<p>
+  <img width="50" height="50" alt="splash" src="https://github.com/user-attachments/assets/385041fb-3f1e-441f-8cb2-904f6d43993d" />   
+</p>
 ---
 # LearnFlow
 
-LearnFlow is a Mini LMS mobile app built in `React Native Expo` for the House of EdTech assignment. It combines secure authentication, a native course catalog, embedded WebView content, local notifications, persistence, and resilient offline-aware UX.
+LearnFlow is a Mini LMS mobile app built in `React Native Expo`. It combines secure authentication, a native course catalog, embedded WebView content, local notifications, persistence, and resilient offline-aware UX.
 
-## 🚀 Live Preview & Build
+## Live Preview & Build
 **Android Preview Build:** [Install via Expo EAS](https://expo.dev/accounts/fzzm05/projects/learnflow/builds/e259e68e-eeb6-4e13-a49f-3c4a92941969)
 
 ## Stack
